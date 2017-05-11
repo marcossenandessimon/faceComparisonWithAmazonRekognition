@@ -1,4 +1,4 @@
-package com.amazonaws.samples;
+package com.amazonaws.faceComparison;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

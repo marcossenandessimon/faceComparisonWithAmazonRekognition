@@ -2,7 +2,6 @@ var app = angular.module('myApp')
   .controller('AppController', function($scope, Upload) {
 
     var files = [];
-    //var cameras = [];
     var i = 0;    
 
     $scope.reset = function() {
@@ -24,7 +23,7 @@ var app = angular.module('myApp')
       load(); 
     }
 
-    $scope.test = function(){   
+    $scope.openWebcam = function(){   
 
         if(window.stream){
             window.stream.getTracks().forEach(function(track){
@@ -68,7 +67,7 @@ var app = angular.module('myApp')
         }else{
             i++;
         }
-        $scope.test();        
+        $scope.openWebcam();        
         
     }
 

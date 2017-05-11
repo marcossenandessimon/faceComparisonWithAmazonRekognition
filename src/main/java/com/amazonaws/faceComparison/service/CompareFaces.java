@@ -1,4 +1,4 @@
-package com.amazonaws.samples.service;
+package com.amazonaws.faceComparison.service;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -67,14 +67,14 @@ public class CompareFaces {
             for (CompareFacesMatch match: faceDetails){
             	ComparedFace face= match.getFace();
             	BoundingBox position = face.getBoundingBox();
-            	return ("{\"mensagem\": \"Os rostos batem com " + face.getConfidence().toString()
-            			+ "% de certeza.\", \"classe\": \"success\"}");
+            	return ("{\"mensagem\": \"The faces match with " + face.getConfidence().toString()
+            			+ "% confidence.\", \"classe\": \"success\"}");
             }
             if(faceDetails.isEmpty()){
-            	return("{\"mensagem\": \"Os rostos não batem!\", \"classe\": \"danger\"}");
+            	return("{\"mensagem\": \"the faces don't match!\", \"classe\": \"danger\"}");
             }
         }catch(Exception e){
-        	return ("{\"mensagem\": \"Não foi possível encontrar rostos em alguma das fotos, se possível tente aproximar ou afastar o rosto da câmera\", \"classe\": \"danger\"}");
+        	return ("{\"mensagem\": \"Sorry, I can't seem to find a face in one of the pictures\", \"classe\": \"danger\"}");
         }
         
 
