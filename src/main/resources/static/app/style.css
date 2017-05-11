@@ -1,0 +1,125 @@
+body {
+    font-family: Helvetica, arial, freesans, clean, sans-serif;
+}
+
+.alert {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.image{
+    text-align: center;
+}
+
+.image img {
+  margin-bottom: 6px;
+  width: 100%;
+}
+
+.space{
+    height: 20px;
+}
+
+.drop-box {
+    background: #F8F8F8;
+    border: 5px dashed #DDD;
+    width: calc(100% - 10px);
+    text-align: center;
+    padding: 20vw 0;
+    margin-left: 10px;
+}
+
+.drop-box.dragover {
+    border: 5px dashed blue;
+}
+
+.drop-box.dragover-err {
+    border: 5px dashed red;
+}
+
+/* for IE*/
+.js-fileapi-wrapper {
+    display: inline-block;
+    vertical-align: middle;
+}
+.ng-v {
+    float: right;
+}
+
+.edit-area {
+    font-size: 14px;
+    background: black;
+    color: #f9f9f9;
+    padding: 5px 1px;
+}
+
+#htmlEdit {
+    margin-bottom: 25px;
+}
+
+.edit-div {
+    font-size: smaller;
+}
+
+.CodeMirror {
+    font-size: 14px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+}
+
+
+.s3 {
+    font-size: smaller;
+    color: #333;
+    margin-left: 20px;
+}
+
+.s3 fieldset {
+    border: 1px solid #AAA;
+}
+
+.s3 label {
+    width: 180px;
+    display: inline-block;
+}
+
+.s3 input {
+    width: 300px;
+}
+
+.s3 .helper {
+    margin-left: 5px;
+}
+
+.howto {
+    margin-left: 10px;
+    line-height: 20px;
+}
+
+.server {
+    margin-bottom: 20px;
+}
+
+.srv-title {
+    font-weight: bold;
+    padding: 5px 0 10px 0;
+}
+
+:not(output):-moz-ui-invalid {
+    box-shadow: none;
+}
+
+.preview {
+    clear: both;
+}
+
+.preview img, .preview audio, .preview video {
+    max-width: 300px;
+    max-height: 150px;
+    float: right;
+}
+
+.custom {
+    font-size: 14px;
+    margin-left: 20px;
+}

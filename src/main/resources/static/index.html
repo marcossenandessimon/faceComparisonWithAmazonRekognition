@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./bower_components/bootstrap-css-only/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="./app/style.css" />
+</head>
+
+<body ng-app="myApp" ng-controller="AppController">
+
+  <div class="container">
+
+    <form name="form">
+
+      <div class="row text-center" ng-show="loading">
+        <img src="./app/Loading_icon.gif" />
+      </div>
+
+      <div class="row">
+
+        <div class="alert alert-{{classe}}" ng-show="message">
+          {{message}}
+          <br />
+          <button ng-click="reset()">Reset</button>
+        </div>
+
+        <div class="alert alert-info" ng-show="progressPercentage && progressPercentage < 100">
+          {{progressPercentage}}
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <!--ng-if="!image1.src"-->
+        <div ng-class="{'col-sm-offset-3': !image1.src}" class="col-sm-6" >
+          
+          <h1 class="text-center" ng-if="!image1.src">
+            Vamos pegar uma foto sua
+          </h1>
+
+          <div ng-if="!image1.src" ngf-drop ng-model="file1" name="file1" class="drop-box" ngf-change="upload($file, image1)" ng-show="!config.webcam">                                    
+            Arraste a imagem aqui ou
+            <br>
+            <button class="btn btn-primary" ng-click="config.webcam=true; test()">capturar imagem</button>
+          </div>
+
+          <div ng-if="config.webcam" class="text-center">
+            <video id="v" width="300"  autoplay ng-if="!image1.src"></video>
+            <br>
+            <button class="btn btn-primary" ng-click="capture()" ng-if="!image1.src">capturar</button>
+            <button class="btn btn-warning" ng-if="multiplasCameras && !image1.src " ng-click="alterarCamera()"> alterar câmera</button><br>
+            <canvas display="none" id="c" ng-hide="true"></canvas>
+          </div>
+
+          <!--<div class="image" ng-show="mostrarImagens">
+            <img ng-src="{{image1.src}}" />
+            <button class="btn btn-warning" ng-click="image1.src = false; resetImage1()" ng-hide="image2.src">nova imagem</button>
+          </div>-->
+
+        </div>
+
+        <div class="visible-xs-block space"></div>
+
+        <!--ng-class="{'col-sm-offset-3': !image2.src}"-->
+
+        <div  class="col-sm-6" ng-class="{'col-sm-offset-3': !image2.src}" ng-if="image1.src">
+          
+          <h1 class="text-center" ng-if="!image2.src">
+            Agora uma do seu documento
+          </h1>
+
+          <div ng-if="!image2.src" ngf-drop ng-model="file2" name="file2" class="drop-box" ngf-change="upload($file, image2)" ng-show="!config.webcam">
+            Arraste a imagem aqui ou
+            <br>
+            <button class="btn btn-primary" ng-click="config.webcam=true; test()">capturar imagem</button>
+          </div>
+
+          <div ng-if="config.webcam" class="text-center">
+            <video id="v" width="300" autoplay ng-if="!image2.src"></video>
+            <br>
+            <button class="btn btn-primary" ng-click="capture2()" ng-if="!image2.src">capturar</button>
+            <button class="btn btn-warning" ng-if="multiplasCameras && !image2.src " ng-click="alterarCamera()"> alterar câmera</button><br>
+            
+          </div>
+
+          <!--<div class="image" ng-show="mostrarImagens">
+            <img ng-src="{{image2.src}}" />
+            <button ng-click="config.webcam = false; resetImage2()">nova imagem</button>
+          </div>-->
+
+        </div>
+
+        <div  class="col-sm-6" ng-if="image1.src && image2.src">
+          <div class="image" ng-show="mostrarImagens">
+            <img ng-src="{{image1.src}}" />
+            <!--<button class="btn btn-warning" ng-click="image1.src = false; resetImage1()" ng-hide="image2.src">nova imagem</button>-->
+          </div>
+        </div>
+        <div  class="col-sm-6" ng-if="image1.src && image2.src">
+          <div class="image" ng-show="mostrarImagens">
+            <img ng-src="{{image2.src}}" />
+            <!--<button class="btn btn-warning" ng-click="image1.src = false; resetImage1()" ng-hide="image2.src">nova imagem</button>-->
+          </div>
+        </div>
+
+
+
+      </div>
+
+    </form>
+  </div>
+
+  <script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>
+  <script type="text/javascript" src="./bower_components/angular-resource/angular-resource.min.js"></script>
+  <script type="text/javascript" src="./bower_components/ng-file-upload/ng-file-upload.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+  <script type="text/javascript" src="./app/app.js"></script>
+  <script type="text/javascript" src="./app/controllers.js"></script>
+  <script type="text/javascript" src="./app/services.js"></script>
+  <script type="text/javascript" src="./bower_components/webcamjs/webcam.min.js"></script>
+  <script type="text/javascript" src="./bower_components/ng-webcam/dist/ng-webcam.js"></script>
+</body>
+
+</html>
