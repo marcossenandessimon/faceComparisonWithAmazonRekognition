@@ -67,8 +67,8 @@ public class CompareFaces {
             for (CompareFacesMatch match: faceDetails){
             	ComparedFace face= match.getFace();
             	BoundingBox position = face.getBoundingBox();
-            	return ("{\"mensagem\": \"The faces match with " + face.getConfidence().toString()
-            			+ "% confidence.\", \"classe\": \"success\"}");
+            	return ("{\"mensagem\": \"The faces match with " + match.getSimilarity().toString()
+            			+ "% similarity and " + face.getConfidence()+ "% confidence.\", \"classe\": \"success\"}");
             }
             if(faceDetails.isEmpty()){
             	return("{\"mensagem\": \"the faces don't match!\", \"classe\": \"danger\"}");
